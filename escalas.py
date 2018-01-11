@@ -159,7 +159,7 @@ class Escala(list):
         'guitar': ['E', 'B', 'G', 'D', 'A', 'E'],
         'bass': ['G', 'D', 'A', 'E'],
         'ukulele': ['A', 'E', 'C', 'G'],
-        'cavaquinho': ['D', 'G', 'B', 'D'],
+        'cavaquinho': ['D', 'B', 'G', 'D'],
     }
 
     def __init__(self, tonica, tipo_escala, *args):
@@ -169,7 +169,7 @@ class Escala(list):
         self._make_escala()
         
     def __repr__(self, *args, **kwargs):
-        return str(escala.tonica) + " " + str(escala.tipo_escala) + " = " + list.__repr__(self, *args, **kwargs)
+        return str(self.tonica) + " " + str(self.tipo_escala) + " = " + list.__repr__(self, *args, **kwargs)
         
     def _make_escala(self):
         index_tonica = self.NOTAS.index(self.tonica)
@@ -178,7 +178,7 @@ class Escala(list):
             self.append(self.NOTAS[(index_tonica+dist_tonica)%len(self.NOTAS)])
     
     def print_escala(self, instrument='guitar'):
-        print('\n    1   2   3   4   5   6   7   8   9   10  11')
+        print('\n  0  1   2   3   4   5   6   7   8   9   10  11')
         for note in Escala.INSTRUMENTS[instrument]:
             self.print_string(Escala(note, 'cromatica'))
     
@@ -186,9 +186,9 @@ class Escala(list):
         printed_string = string.tonica
         if string[0] in self:
             if string[0] == self[0]:
-                printed_string += " O"
+                printed_string += " O|"
             else:
-                printed_string += " X"
+                printed_string += " X|"
         else:
             printed_string += " |"
         for nota in string[1:]:
