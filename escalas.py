@@ -124,14 +124,14 @@ class Escala(list):
     NOTAS = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
 
     ESCALAS = {
-        'maior': [0, 2, 4, 5, 7, 9, 11],
-        'menor': [0, 2, 3, 5, 7, 8, 10],
-        'harmonica': [0, 2, 3, 5, 7, 8, 11],
-        'melodica': [0, 2, 3, 5, 7, 9, 11],
-        'pentatonica': [0, 3, 5, 7, 10],
-        'diminuta': [0, 3, 6, 9],
-        'cromatica': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-        'pentatonica_blues': [0, 3, 5, 6, 7, 10],
+        'major': [0, 2, 4, 5, 7, 9, 11],
+        'minor': [0, 2, 3, 5, 7, 8, 10],
+        'harmonic': [0, 2, 3, 5, 7, 8, 11],
+        'melodic': [0, 2, 3, 5, 7, 9, 11],
+        'pentatonic': [0, 3, 5, 7, 10],
+        'diminished': [0, 3, 6, 9],
+        'cromatic': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        'pentatonic_blues': [0, 3, 5, 6, 7, 10],
         'fibonacci': [0, 1, 1, 2, 3, 5, 8],
         'ionian': [0, 2, 4, 5, 7, 9, 11],
         'dorian': [0, 2, 3, 5, 7, 9, 10],
@@ -156,10 +156,10 @@ class Escala(list):
              'G#': 830.61}
 
     INSTRUMENTS = {
-        'guitar': ['E', 'B', 'G', 'D', 'A', 'E'],
-        'bass': ['G', 'D', 'A', 'E'],
-        'ukulele': ['A', 'E', 'C', 'G'],
-        'cavaquinho': ['D', 'B', 'G', 'D'],
+        'guitar': ['E', 'A', 'D', 'G', 'B', 'gE'],
+        'bass': ['E', 'A', 'D', 'G'],
+        'ukulele': ['G', 'C', 'E', 'A'],
+        'cavaquinho': ['D', 'G', 'B', 'D'],
     }
 
     def __init__(self, tonica, tipo_escala, *args):
@@ -179,8 +179,10 @@ class Escala(list):
     
     def print_escala(self, instrument='guitar'):
         print('\n  0  1   2   3   4   5   6   7   8   9   10  11  12')
-        for note in Escala.INSTRUMENTS[instrument]:
-            self.print_string(Escala(note, 'cromatica'))
+        string_order = Escala.INSTRUMENTS[instrument]
+        string_order.reverse()
+        for note in string_order:
+            self.print_string(Escala(note, 'cromatic'))
     
     def print_string(self, string):
         string.append(string[0])
