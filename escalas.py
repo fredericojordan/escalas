@@ -178,11 +178,12 @@ class Escala(list):
             self.append(self.NOTAS[(index_tonica+dist_tonica)%len(self.NOTAS)])
     
     def print_escala(self, instrument='guitar'):
-        print('\n  0  1   2   3   4   5   6   7   8   9   10  11')
+        print('\n  0  1   2   3   4   5   6   7   8   9   10  11  12')
         for note in Escala.INSTRUMENTS[instrument]:
             self.print_string(Escala(note, 'cromatica'))
     
     def print_string(self, string):
+        string.append(string[0])
         printed_string = string.tonica
         if string[0] in self:
             if string[0] == self[0]:
@@ -190,7 +191,7 @@ class Escala(list):
             else:
                 printed_string += " X|"
         else:
-            printed_string += " |"
+            printed_string += "  |"
         for nota in string[1:]:
             if nota in self:
                 if nota == self[0]:
