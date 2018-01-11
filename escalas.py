@@ -1,4 +1,4 @@
-'''
+"""
 Created on 8 de mar de 2016
 
 @author: Frederico
@@ -114,43 +114,52 @@ A8    7040.00    4.90
  A#8/Bb8     7458.62    4.63
 B8    7902.13    4.37
 
-'''
-from audio import sine_tone
+"""
+
+# from audio import sine_tone
 # from winsound import Beep
 
+
 class Escala(list):
-    NOTAS = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#' ]
-    ESCALAS = { 'maior':[0, 2, 4, 5, 7, 9, 11],
-                'menor':[0, 2, 3, 5, 7, 8, 10],
-                'harmonica':[0, 2, 3, 5, 7, 8, 11],
-                'melodica':[0, 2, 3, 5, 7, 9, 11],
-                'pentatonica':[0, 3, 5, 7, 10],
-                'diminuta':[0, 3, 6, 9],
-                'cromatica':[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
-                'pentatonica_blues':[0, 3, 5, 6, 7, 10],
-                'fibonacci':[0, 1, 1, 2, 3, 5, 8],
-                'ionian':[0, 2, 4, 5, 7, 9, 11],
-                'dorian':[0, 2, 3, 5, 7, 9, 10],
-                'phrygian':[0, 1, 3, 5, 7, 8, 10],
-                'lydian':[0, 2, 4, 6, 7, 9, 11],
-                'mixolydian':[0, 2, 4, 5, 7, 9, 10],
-                'aeolian':[0, 2, 3, 5, 7, 8, 10],
-                'locrian':[0, 1, 3, 5, 6, 8, 10] }
-    FREQS = {'A':440.0,
-             'A#':466.16,
-             'B':493.88,
-             'C':523.25,
-             'C#':554.37,
-             'D':587.33,
-             'D#':622.25,
-             'E':659.25,
-             'F':698.46,
-             'F#':739.99,
-             'G':783.99,
-             'G#':830.61 }
-    INSTRUMENTS = { 'guitar':['E', 'B', 'G', 'D', 'A', 'E'],
-                    'bass':['G', 'D', 'A', 'E'],
-                    'ukulele':['A', 'E', 'C', 'G'] }
+    NOTAS = ['A', 'A#', 'B', 'C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#']
+
+    ESCALAS = {
+        'maior': [0, 2, 4, 5, 7, 9, 11],
+        'menor': [0, 2, 3, 5, 7, 8, 10],
+        'harmonica': [0, 2, 3, 5, 7, 8, 11],
+        'melodica': [0, 2, 3, 5, 7, 9, 11],
+        'pentatonica': [0, 3, 5, 7, 10],
+        'diminuta': [0, 3, 6, 9],
+        'cromatica': [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        'pentatonica_blues': [0, 3, 5, 6, 7, 10],
+        'fibonacci': [0, 1, 1, 2, 3, 5, 8],
+        'ionian': [0, 2, 4, 5, 7, 9, 11],
+        'dorian': [0, 2, 3, 5, 7, 9, 10],
+        'phrygian': [0, 1, 3, 5, 7, 8, 10],
+        'lydian': [0, 2, 4, 6, 7, 9, 11],
+        'mixolydian': [0, 2, 4, 5, 7, 9, 10],
+        'aeolian': [0, 2, 3, 5, 7, 8, 10],
+        'locrian': [0, 1, 3, 5, 6, 8, 10],
+    }
+
+    FREQS = {'A': 440.0,
+             'A#': 466.16,
+             'B': 493.88,
+             'C': 523.25,
+             'C#': 554.37,
+             'D': 587.33,
+             'D#': 622.25,
+             'E': 659.25,
+             'F': 698.46,
+             'F#': 739.99,
+             'G': 783.99,
+             'G#': 830.61}
+
+    INSTRUMENTS = {
+        'guitar': ['E', 'B', 'G', 'D', 'A', 'E'],
+        'bass': ['G', 'D', 'A', 'E'],
+        'ukulele': ['A', 'E', 'C', 'G'],
+    }
 
     def __init__(self, tonica, tipo_escala, *args):
         list.__init__(self, *args)
@@ -191,26 +200,26 @@ class Escala(list):
                 printed_string += '---|'
         print(printed_string)
         
-    def play(self, length=1, oitavas=1):
-        todas_freqs = []
-        for i in range(oitavas):
-            for note in self:
-                freq = self.FREQS[note]
-                if freq < Escala.FREQS[self[0]]:
-                    freq *= 2
-                todas_freqs.append(freq*(2**i))
-        for note in todas_freqs:
-            sine_tone(note, length)
+    # def play(self, length=1, oitavas=1):
+    #     todas_freqs = []
+    #     for i in range(oitavas):
+    #         for note in self:
+    #             freq = self.FREQS[note]
+    #             if freq < Escala.FREQS[self[0]]:
+    #                 freq *= 2
+    #             todas_freqs.append(freq*(2**i))
+    #     for note in todas_freqs:
+    #         sine_tone(note, length)
 
 
-escala = Escala('C', 'locrian')
+if __name__ == '__main__':
+    escala = Escala('C', 'major')
+    print(escala)
+    escala.print_escala()
+    escala.print_escala('ukulele')
+    escala.print_escala('bass')
+    # escala.play(0.05)
 
-print(escala)
-escala.print_escala()
-escala.print_escala('ukulele')
-escala.print_escala('bass')
-escala.play(0.05)
-
-# sine_tone(440, 2)
-# sine_tone(432, 2)
-# sine_tone(420, 2)
+    # sine_tone(440, 2)
+    # sine_tone(432, 2)
+    # sine_tone(420, 2)
