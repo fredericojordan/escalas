@@ -159,6 +159,7 @@ class Escala(list):
         'guitar': ['E', 'B', 'G', 'D', 'A', 'E'],
         'bass': ['G', 'D', 'A', 'E'],
         'ukulele': ['A', 'E', 'C', 'G'],
+        'cavaquinho': ['D', 'G', 'B', 'D'],
     }
 
     def __init__(self, tonica, tipo_escala, *args):
