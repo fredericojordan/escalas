@@ -156,7 +156,7 @@ class Escala(list):
              'G#': 830.61}
 
     INSTRUMENTS = {
-        'guitar': ['E', 'A', 'D', 'G', 'B', 'gE'],
+        'guitar': ['E', 'A', 'D', 'G', 'B', 'E'],
         'bass': ['E', 'A', 'D', 'G'],
         'ukulele': ['G', 'C', 'E', 'A'],
         'cavaquinho': ['D', 'G', 'B', 'D'],
