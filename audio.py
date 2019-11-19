@@ -3,13 +3,18 @@ Created on 16 de mar de 2016
 
 @author: fvj
 """
+import logging
 import math
-
-import pyaudio
 
 
 # 261.63=C4-note
 def sine_tone(freq=440, length=1, bitrate=16000):
+    try:
+        import pyaudio
+    except ImportError:
+        logging.warning("No audio lib installed")
+        return
+
     if freq > bitrate:
         bitrate = freq + 100
 
