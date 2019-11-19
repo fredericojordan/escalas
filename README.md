@@ -2,6 +2,14 @@
 
 In this repository, we code some common scales and try to reproduce them in various forms.
 
+## Installation
+
+In order to be able to play the scales, you must install the requirements:
+
+```
+pip install -r requirements.txt
+```
+
 ## Usage
 
 ```
