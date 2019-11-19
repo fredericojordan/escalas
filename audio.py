@@ -12,7 +12,7 @@ def sine_tone(freq=440, length=1, bitrate=16000):
     try:
         import pyaudio
     except ImportError:
-        logging.warning("No audio lib installed")
+        logging.warning("PyAudio not found. Try running 'pip install pyaudio'")
         return
 
     if freq > bitrate:
