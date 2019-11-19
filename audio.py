@@ -16,10 +16,10 @@ def sine_tone(freq=440, length=1, bitrate=16000):
     RESTFRAMES = NUMBEROFFRAMES % bitrate
     WAVEDATA = ''    
     
-    for x in xrange(NUMBEROFFRAMES):
+    for x in range(NUMBEROFFRAMES):
         WAVEDATA = WAVEDATA+chr(int(math.sin(x/((bitrate/freq)/math.pi))*127+128))    
     
-    for x in xrange(RESTFRAMES):
+    for x in range(RESTFRAMES):
         WAVEDATA = WAVEDATA+chr(128)
     
     p = pyaudio.PyAudio()

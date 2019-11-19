@@ -4,7 +4,7 @@ Created on 8 de mar de 2016
 @author: Frederico
 """
 
-# from audio import sine_tone
+from audio import sine_tone
 
 
 class Escala(list):
@@ -92,16 +92,16 @@ class Escala(list):
                 printed_string += '---|'
         print(printed_string)
         
-    # def play(self, length=1, oitavas=1):
-    #     todas_freqs = []
-    #     for i in range(oitavas):
-    #         for note in self:
-    #             freq = self.FREQS[note]
-    #             if freq < Escala.FREQS[self[0]]:
-    #                 freq *= 2
-    #             todas_freqs.append(freq*(2**i))
-    #     for note in todas_freqs:
-    #         sine_tone(note, length)
+    def play(self, length=1, oitavas=1):
+        todas_freqs = []
+        for i in range(oitavas):
+            for note in self:
+                freq = self.FREQS[note]
+                if freq < Escala.FREQS[self[0]]:
+                    freq *= 2
+                todas_freqs.append(freq*(2**i))
+        for note in todas_freqs:
+            sine_tone(note, length)
 
 
 if __name__ == '__main__':
@@ -110,7 +110,7 @@ if __name__ == '__main__':
     escala.print_escala()
     escala.print_escala('ukulele')
     escala.print_escala('bass')
-    # escala.play(0.05)
+    escala.play(0.05)
 
     # sine_tone(440, 2)
     # sine_tone(432, 2)
