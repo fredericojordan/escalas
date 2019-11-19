@@ -60,7 +60,7 @@ class Escala(list):
         self._make_escala()
         
     def __repr__(self, *args, **kwargs):
-        return str(self.tonica) + " " + str(self.tipo_escala) + " = " + list.__repr__(self, *args, **kwargs)
+        return str(self.tonica) + " " + str(self.tipo_escala) + ": " + ", ".join(self)
         
     def _make_escala(self):
         index_tonica = self.NOTAS.index(self.tonica)
@@ -69,7 +69,8 @@ class Escala(list):
             self.append(self.NOTAS[(index_tonica+dist_tonica)%len(self.NOTAS)])
     
     def print_escala(self, instrument='guitar'):
-        print('\n  0  1   2   3   4   5   6   7   8   9   10  11  12')
+        print('\n{} {} on a {}:'.format(self.tonica, self.tipo_escala, instrument))
+        print('  0  1   2   3   4   5   6   7   8   9   10  11  12')
         string_order = Escala.INSTRUMENTS[instrument]
         string_order.reverse()
         for note in string_order:
