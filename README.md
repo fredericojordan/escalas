@@ -4,7 +4,7 @@ In this repository, we code some common scales and try to reproduce them in vari
 
 ## Usage
 
-```python
+```
 >>> from escalas import Escala
 >>> escala = Escala('C', 'major')
 >>> print(escala)
@@ -31,7 +31,7 @@ G X|---|-X-|---|-X-|-O-|---|-X-|---|-X-|-X-|---|-X-|
 
 TODO:
 
-```python
+```
 >>> escala.play()
 ```
 
