@@ -2,13 +2,9 @@
 Created on 8 de mar de 2016
 
 @author: Frederico
-https://www.youtube.com/watch?v=1Hqm0dYKUx4
-
-
 """
 
 # from audio import sine_tone
-# from winsound import Beep
 
 
 class Escala(list):
